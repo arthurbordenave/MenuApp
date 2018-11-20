@@ -1,0 +1,22 @@
+= simple_form_for @item, html: {multipart: true} do |f|
+    - if @item.errors.any?
+        #errors
+            %p
+                = @item.errors.count
+                Prevented this item from saving
+            %ul
+                - @item.errors.full_messages.each do |msg|
+                    %li= msg
+    .panel-body
+        = f.input :title, input_html: { class: 'form-control'}
+
+        .row
+            %h3 Strains
+            #strains
+                = f.simple_fields_for :strains do |strain|
+                    = render 'strain_fields', f: strain
+                .links
+                    = link_to_add_association 'Add Strain', f, :strains, class: 'btn btn-default add-button'
+       
+
+    = f.button :submit, class: 'btn btn-primary'

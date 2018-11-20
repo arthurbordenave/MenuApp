@@ -1,0 +1,24 @@
+%div{class: 'list-group', id:'sortable', 'data-url': sort_items_path }
+    - @item.each do |item|
+        = link_to item.title, item, class: 'list-group-item', id: dom_id(item)
+    
+    %table.table
+        %tr
+            %th.col-lg-1.text-uppercase name
+            %th.col-lg-1.text-uppercase price
+            %th.col-lg-1.text-uppercase thc
+            %th.col-lg-1.text-uppercase cbd
+            %th.col-lg-1.text-uppercase genotype
+        
+        -@item.strains.each do |strains|
+                
+            %tr
+                %td.col-lg-1= strains.name
+                %td.col-lg-1= strains.price
+                %td.col-lg-1= strains.thc
+                %td.col-lg-1= strains.cbd
+                %td.col-lg-1= strains.genotype
+
+            
+        
+    

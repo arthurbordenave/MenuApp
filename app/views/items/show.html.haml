@@ -1,0 +1,26 @@
+.main_content   
+    #items_top.row
+        %p= @item.title
+
+    .row
+        %table.table
+            %tr
+                %th.col-lg-1.text-uppercase name
+                %th.col-lg-1.text-uppercase price
+                %th.col-lg-1.text-uppercase thc
+                %th.col-lg-1.text-uppercase cbd
+                %th.col-lg-1.text-uppercase genotype
+
+            -@item.strains.each do |strains|
+                
+                %tr
+                    %td.col-lg-1= strains.name
+                    %td.col-lg-1= strains.price
+                    %td.col-lg-1= strains.thc
+                    %td.col-lg-1= strains.cbd
+                    %td.col-lg-1= strains.genotype
+
+    .row
+        = link_to 'Back', root_path, class: 'btn btn-default'
+        = link_to 'Edit', edit_item_path, class: 'btn btn-default' 
+        = link_to 'Delete', item_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default' 
