@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
     before_action :find_items, only: [:show, :edit, :update, :destroy]
-    
+
     def index
         @item = Item.all.order(:position)
     end
@@ -51,7 +51,6 @@ class ItemsController < ApplicationController
     def item_params
         params.require(:item).permit(:title, strains_attributes: [:id, :name, :price, :thc, :cbd, :genotype, :_destroy])
     end
-
 
     def find_items
         @item = Item.find(params[:id])

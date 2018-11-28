@@ -19,8 +19,9 @@
                     %td.col-lg-1= strains.thc
                     %td.col-lg-1= strains.cbd
                     %td.col-lg-1= strains.genotype
-
+            
     .row
         = link_to 'Back', root_path, class: 'btn btn-default'
         = link_to 'Edit', edit_item_path, class: 'btn btn-default' 
         = link_to 'Delete', item_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default' 
+
